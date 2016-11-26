@@ -10,16 +10,17 @@
 }
   body{
     background-color: #2b2b2b;
-
   }
-
    p {
      font-family: "sansation";
      display:block;
      color:#999;
-     padding: 25px 0;
-     margin: 0 0 25px 0;
+     padding: 0 0;
+     margin: 0 0 0 0;
      font-weight: 100;
+    }
+    .titolo_post, .autore, .piccolo{
+      font-size: 12px;
     }
     a, a:visited {
       color: #48b9b2;
@@ -29,25 +30,45 @@
       color: #b6c235;
       text-decoration: none;
       }
+    .tituli{
+      font-family: "sansation";
+      display:block;
+      color:#b6c235;;
+      padding: 10px 0;
+      margin: 0 0 0 0;
+      font-weight: 200;
+    }
+    .left-right{
+      margin-right: 30px;
+      display: inline-block;
+    }
+    .corpo {
+      width: 600px;
+      margin: 0 0 20px 0;
+    }
 
   </style>
-  <title>Francy's Blog</title>
+      <title>Francy's Blog</title>
 </head>
-<body>
-  <div>
-          <h1><a href="">Django Girls Blog</a></h1>
+      <body>
+          <div>
+              <h1><a href="">Django Girls Blog</a></h1>
           </div>
 
           <div>
-              <p>published: 14.06.2014, 12:14</p>
-              <h2><a href="">My first post</a></h2>
-              <p>Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+              {% for post in posts %}
+              <div class="left-right">
+                <div class="tituli piccolo">titolo post</div>
+                <p class="titolo_post">{{ post.title }}</p>
+              </div>
+              <div class="left-right">
+                <div class="tituli piccolo">autore post</div>
+                <p class="autore">{{ post.author }}</p>
+              </div>
+               <div class="tituli piccolo">post</div>
+              <p class="corpo">{{ post.text }}</p>
+             {% endfor %}
           </div>
 
-          <div>
-              <p>published: 14.06.2014, 12:14</p>
-              <h2><a href="">My second post</a></h2>
-              <p>Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut f.</p>
-          </div>
-</body>
-</html>
+      </body>
+  </html>
